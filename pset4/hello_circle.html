@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<body>
+    <canvas width="600" height="600" id="canvas" style="width: 600px; height: 600px;"></canvas>
+</body>
+
+<script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const w = canvas.width, h = canvas.height;
+
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width *= dpr, canvas.height *= dpr;
+    ctx.scale(dpr, dpr);
+
+    let xPos = 400;
+    let yPos = 200;
+    let radius = 59;
+
+    ctx.arc(xPos,
+        yPos,
+        radius,
+        0,
+        Math.PI * 2,
+        true);
+
+    ctx.strokeStyle = "green";
+    ctx.lineWidth = "7"
+    ctx.stroke()
+
+
+</script>
