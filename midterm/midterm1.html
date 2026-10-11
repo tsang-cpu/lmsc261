@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<body>
+    <canvas width="600" height="600" id="canvas" style="width: 600px; height: 600px;"></canvas>
+</body>
+
+<script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const w = canvas.width, h = canvas.height;
+
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width *= dpr, canvas.height *= dpr;
+    ctx.scale(dpr, dpr);
+
+    ctx.fillStyle = "pink";
+    ctx.fillRect(0, 0, w, h)
+    const cx = w / 2, cy = h / 2;
+    const bigRadius = w * 0.3;
+    const smallRadius = bigRadius / 2;
+    const tinyRadius = smallRadius / 15;
+
+    ctx.arc(cx,
+     cy * 1.3,
+    bigRadius,
+    0,
+    Math.PI * 2,
+    false
+    );
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.arc(cx,
+        cy * 0.5,
+        smallRadius,
+        0,
+        Math.PI * 2,
+        false
+    );
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    // eyes
+    ctx.beginPath();
+    ctx.arc(w * 0.45,
+            cy * 0.4,
+            tinyRadius,
+            0,
+            Math.PI * 2,
+            false
+    );
+        ctx.fillStyle = "black"
+    ctx.fill();
+
+    
+      ctx.beginPath();
+    ctx.arc(w * 0.55,
+            cy * 0.4,
+            tinyRadius,
+            0,
+            Math.PI * 2,
+            false
+    );
+
+    ctx.fillStyle = "black"
+    ctx.fill();
+     //mouth
+    ctx.beginPath();
+    ctx.arc(w * 0.5,
+            cy * 0.6,
+            tinyRadius * 3,
+            0,
+            Math.PI ,
+            false
+    );
+    ctx.StrokeStyle = "black";
+    ctx.lineWidth = "5";
+    ctx.lineCap = "round";
+    ctx.stroke();
+    
+
+
+</script>
