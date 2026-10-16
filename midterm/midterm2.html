@@ -49,13 +49,14 @@
     ctx.lineWidth = 3;
     ctx.lineCap = "round";
     ctx.stroke();
+    
  }
  const snowmanScale = 0.5;
  const bigRadius = w * 0.3 * snowmanScale;
  const smallRadius = bigRadius / 2;
 
- let velX = 1;
- let velY = 1;
+ let velX = 3;
+ let velY = 0.5;
 
     let manX = w / 2;
     let manY = h / 2;
@@ -69,24 +70,20 @@
 
 function tick(){
         manX += velX;
-
-        if (manX <= 0 || manX >= w){ 
+        const sizeOffset = h * 0.15;
+        const sizeOffsetY = w * 0.23;
+        if (manX <= 0 + sizeOffset || manX >= w - sizeOffset){ 
                 velX *= -1; 
         } 
 
         
-        manY += velY 
-        if (manY <= 0 || manY >= h) {
+        manY += velY;
+        if (manY <= 0 + sizeOffsetY || manY >= h -sizeOffsetY) {
                 velY *= -1; 
         } 
         drawBG();
         requestAnimationFrame(tick);
 }
 tick();
-
-
-    
-
-
 
 </script>
